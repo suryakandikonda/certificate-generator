@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Certificate Generator</title>
+</head>
+<body>
+
+	<br><br><h2 style="text-align: center;">Automated Certificate Designer</h2>
+	<p>Select Certificate: </p>
+	<select id="certificate" onchange="imageDisplay()">
+		<option value="certificates/1.png">1</option>
+		<option value="certificates/2.png">2</option>
+	</select>
+
+
+	<input type="text" id="title" placeholder="Title" onchange="displayTitle()"><br><br>
+	<input type="text" id="name" placeholder="Name" onchange="displayName()"> 
+	<input type="text" id="topStyle" placeholder="Enter Top in pixels" onchange="setTextStyle()">
+	<input type="text" id="leftStyle" placeholder="Enter Left in pixels" onchange="setTextStyle()">
+	<input type="text" id="textSizeStyle" placeholder="Enter Text Size in pixels" onchange="setTextStyle()">
+
+	
+
+	<div style="position: relative;">
+		<h1 id="titleText" style="position: absolute; top: 200px; left: 200px; font-size: 72px;"></h1>
+		<h2 id="nameText" style="position: absolute;"></h2>
+
+		<img src="2.png" style="width: 100%; height: auto; margin: 0 auto;">
+	</div>
+
+	<script type="text/javascript">
+		function imageDisplay()
+		{
+			var image = document.getElementById('certificate').value;
+			document.getElementsByTagName('img')[0].setAttribute("src",image);
+		}
+
+		function displayName()
+		{
+			var text = document.getElementById('name').value;
+			document.getElementById('nameText').innerHTML = text;
+		}
+
+		function displayTitle()
+		{
+			var text = document.getElementById('title').value;
+			document.getElementById('titleText').innerHTML = text;
+		}
+
+		function setTextStyle()
+		{
+			var topPX = document.getElementById('topStyle').value;
+			var leftPX = document.getElementById('leftStyle').value;
+			var textSize = document.getElementById('textSizeStyle').value;
+			document.getElementById('nameText').style.top=topPX + "px";
+			document.getElementById('nameText').style.left = leftPX + "px";
+			document.getElementById('nameText').style.fontSize=textSize + "px";
+		}
+	</script>
+
+
+</body>
+</html>
